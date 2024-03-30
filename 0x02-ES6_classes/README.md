@@ -1,3 +1,1 @@
-# JavaScript - Classes
-
-In this project, we explore the concept of classes in JavaScript
+0x02-ES6_classes

@@ -1,60 +1,52 @@
 export default class HolbertonCourse {
-  constructor (name, length, students) {
+  constructor(name, length, students) {
     if (typeof name !== 'string') {
       throw new TypeError('Name must be a string');
+    } else {
+      this._name = name;
     }
     if (typeof length !== 'number') {
-      throw new TypeError('Name must be a number');
+      throw new TypeError('Length must be a number');
+    } else {
+      this._length = length;
     }
-    if (Array.isArray(students)) {
-      this.arrayIsOfStrings(students);
+    if (!Array.isArray(students)) {
+      throw new TypeError('must be a array');
+    } else {
       this._students = students;
     }
-
-    this._length = length;
-    this._name = name;
   }
 
-  get name () {
+  get name() {
     return this._name;
   }
 
-  get length () {
+  set name(na) {
+    if (typeof na !== 'string') {
+      throw new TypeError('Name must be a string');
+    }
+    this._name = na;
+  }
+
+  get length() {
     return this._length;
   }
 
-  get students () {
+  set length(zise) {
+    if (typeof zise !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
+    this._length = zise;
+  }
+
+  get students() {
     return this._students;
   }
 
-  set name (value) {
-    if (typeof value === 'string') {
-      this._name = value;
-    } else {
-      throw new TypeError('Name must be a string');
+  set students(stu) {
+    if (!Array.isArray(stu)) {
+      throw new TypeError('must be a array');
     }
-  }
-
-  set length (value) {
-    if (typeof length === 'number') {
-      this._length = value;
-    } else {
-      throw new TypeError('Length must be a number');
-    }
-  }
-
-  set students (value) {
-    if (Array.isArray(value)) {
-      this.arrayIsOfStrings(value);
-      this._students = value;
-    }
-  }
-
-  arrayIsOfStrings (array) {
-    array.forEach(element => {
-      if (typeof element !== 'string') {
-        throw new TypeError('Students must be an array of strings');
-      }
-    });
+    this._students = stu;
   }
 }
